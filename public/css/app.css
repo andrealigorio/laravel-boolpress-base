@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 18px;
+}
+.box {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+.logo {
+    align-self: center;
+    font-weight: bold;
+    font-size: 2em;
+}
+.jumbo {
+    width: 100%;
+    height: 700px;
+    background-image: url(../img/blog_jumbo.jpg);
+    background-position: center;
+    background-size: cover;
+}
+footer {
+    width: 100%;
+    height: 70px;
+    background-color: black;
+    text-align: center;
+    line-height: 70px;
+    color: lightgray;
+}

@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'MainController@index')->name('homepage');
+Route::get('/contacts', 'MainController@contacts')->name('contacts');
 Route::resource('/posts', 'PostController');

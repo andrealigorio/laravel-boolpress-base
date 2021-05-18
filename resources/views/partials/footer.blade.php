@@ -1,3 +1,3 @@
 <footer>
-    Footer
+    <p>©opyright | BoolPress</p>
 </footer>
