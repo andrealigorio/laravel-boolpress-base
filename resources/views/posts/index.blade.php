@@ -6,6 +6,11 @@
 
 <div class="my_container">
     <h2>Tutti i post:</h2>
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
     <a class="btn" href="{{route('posts.create')}}">ADD NEW POST</a>
         @foreach ($posts as $post)
             <div class="box_post">
@@ -31,7 +36,7 @@
                         {{$post['content']}}
                     </div>
                     <a class="btn" href="{{route('posts.edit', $post['id'])}}">UPDATE</a>
-                    <form action="" method="post">
+                    <form action="{{route('posts.destroy', $post['id'])}}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit">DELETE</button>

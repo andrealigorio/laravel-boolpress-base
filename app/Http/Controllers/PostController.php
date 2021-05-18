@@ -94,7 +94,7 @@ class PostController extends Controller
         $data = $request->all();
 
         $this->valida($request);
-        
+
         $post->update($data);
 
         return redirect()->route('posts.index');
@@ -108,6 +108,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->route('posts.index')->with('status', 'Post deleted');
     }
 }
