@@ -18,6 +18,8 @@ class PostSeeder extends Seeder
             $new_post->author = $faker->firstName();
             $new_post->title = $faker->sentence(3);
             $new_post->content = $faker->paragraph();
+            $new_post->icon = $faker->imageUrl(70, 70, 'animals', true);
+            $new_post->image = $faker->imageUrl(320, 240, 'animals', true);
             $new_post->save();
         }
     }
