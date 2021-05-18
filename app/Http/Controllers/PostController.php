@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    protected function valida(Request $request) {
+
+        $request->validate([
+            'name' => 'required|max:100',
+            'title' => 'required|max:200',
+            'content' => 'required',
+            'image' => 'nullable',
+            'icon' => 'nullable'
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -39,6 +49,8 @@ class PostController extends Controller
     {
         $data = $request->all();
 
+        $this->valida($request);
+
         $new_post = new Post();
 
         $new_post->fill($data);
@@ -67,7 +79,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -79,7 +91,13 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $data = $request->all();
+
+        $this->valida($request);
+        
+        $post->update($data);
+
+        return redirect()->route('posts.index');
     }
 
     /**

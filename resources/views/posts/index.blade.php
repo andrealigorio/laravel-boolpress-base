@@ -6,6 +6,7 @@
 
 <div class="my_container">
     <h2>Tutti i post:</h2>
+    <a class="btn" href="{{route('posts.create')}}">ADD NEW POST</a>
         @foreach ($posts as $post)
             <div class="box_post">
                 <div class="post_img">
@@ -29,7 +30,7 @@
                     <div class="post_content">
                         {{$post['content']}}
                     </div>
-                    <a class="btn" href="{{route('posts.create')}}">UPDATE</a>
+                    <a class="btn" href="{{route('posts.edit', $post['id'])}}">UPDATE</a>
                     <form action="" method="post">
                         @csrf
                         @method('DELETE')
